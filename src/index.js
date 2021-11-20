@@ -34,6 +34,7 @@ function imgLoad(){
 //breed is a String.
 //breedColor is the defining of the fontcolor of breedTag, after that String is clicked (inside Event Listener).
 //breedTag is the definition of a new <li> tag being created, along with it's .id and .innerText.
+//dogFilter is the definition using the .filter() method on breedList, along with the callback function.
 
 let breedList = [];
 
