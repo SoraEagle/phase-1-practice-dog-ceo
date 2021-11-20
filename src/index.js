@@ -57,8 +57,8 @@ function breedLoad(){
         });
         let breedDropDown = document.getElementById('breed-dropdown');
         breedDropDown.addEventListener("onchange", () => {
-            let dogFilter = breedList.filter(breedTag => { //Creating the filtered result...
-        //         /**/ === breedTag.innerText.charAt(0);
+            let dogFilter = breedList.filter( () => { //Creating the filtered result...
+                breedDropDown.option.value === breedTag.innerText.charAt(0); //Compare the dropdown value to breedTag.charAt(0)
     })
         });
         breedTag.innerText = breed;
