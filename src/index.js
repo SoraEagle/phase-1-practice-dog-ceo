@@ -57,7 +57,7 @@ function breedLoad(){
             breedTag.innerHTML = breedColor;
         });
         let breedDropDown = document.getElementById('breed-dropdown');
-        breedDropDown.addEventListener("onchange", () => {
+        breedDropDown.addEventListener("change", () => {
             let dogFilter = breedList.filter( () => { //Creating the filtered result...
                 breedDropDown.option.value === breedTag.innerText.charAt(0); //Compare the dropdown value to breedTag.charAt(0)
     })
