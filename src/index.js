@@ -45,10 +45,10 @@ function breedLoad(){
     })
     .then(response => response.json()) //Converts response to JSON
       .then(data => { 
-        console.log(data.message); //For getting the needed info for the future steps
+        // console.log(data.message); //For getting the needed info for the future steps
         const dogBreedContainer = document.getElementById('dog-breeds'); // get destination for dog breeds
     for(breed in data.message){ //loop over data.message and for each string:
-        console.log(breed);
+        // console.log(breed);
         let breedTag = document.createElement('li'); //Create new <li> tag
         breedTag.id = breed;
         breedTag.addEventListener("click", () => { //Add Event Listener to the <li> tag
@@ -56,12 +56,7 @@ function breedLoad(){
             let breedColor = breedTag.innerText.fontcolor("red"); //Turn the text "red"
             breedTag.innerHTML = breedColor;
         });
-        let breedDropDown = document.getElementById('breed-dropdown');
-        breedDropDown.addEventListener("change", () => {
-            let dogFilter = breedList.filter( () => { //Creating the filtered result...
-                breedDropDown.option.value === breedTag.innerText.charAt(0); //Compare the dropdown value to breedTag.charAt(0)
-    })
-        });
+        
         breedTag.innerText = breed;
         dogBreedContainer.appendChild(breedTag); //Append corresponding <li> breed element to dogBreedContainer
         breedList.push(breed); //Push breed into breedList
@@ -71,5 +66,29 @@ function breedLoad(){
         let message = 'Unauthorized Access';
         alert("Ragnarők!  Unable to fetch breeds!"); //Alert when an error occurs with breeds
         document.body.innerHTML = error.message; //append the error message to DOM
-    });  
+    });
+    
+    let breedDropDown = document.getElementById('breed-dropdown');
+        breedDropDown.addEventListener("change", () => {
+            let dogFilter = breedList.filter(breedTag => { //Creating the filtered result...
+                return breedDropDown.value === breedTag.charAt(0); //Compare the dropdown value to breedTag.charAt(0)
+    })
+    const dogBreedContainer = document.getElementById('dog-breeds'); // get destination for dog breeds
+    dogBreedContainer.innerHTML = "";
+
+    for(breed of dogFilter){ //loop over data.message and for each string:
+        console.log(dogFilter);
+        let breedTag = document.createElement('li'); //Create new <li> tag
+        breedTag.id = breed;
+        breedTag.addEventListener("click", () => { //Add Event Listener to the <li> tag
+            // console.log("breed ", breedTag);
+            let breedColor = breedTag.innerText.fontcolor("red"); //Turn text "red"
+            breedTag.innerHTML = breedColor;
+        });
+        
+        breedTag.innerText = breed;
+        dogBreedContainer.appendChild(breedTag); //Append corresponding <li> breed element to dogBreedContainer
+        breedList.push(breed); //Push breed into breedList
+    }
+    });
 }
