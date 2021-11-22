@@ -28,7 +28,6 @@ function imgLoad(){
     });
 }
 
-
 //data.message is the original Object that many definitions originate from.
 //breedList is an Array.
 //breed is a String.
@@ -48,11 +47,9 @@ function breedLoad(){
         // console.log(data.message); //For getting the needed info for the future steps
         const dogBreedContainer = document.getElementById('dog-breeds'); // get destination for dog breeds
     for(breed in data.message){ //loop over data.message and for each string:
-        // console.log(breed);
         let breedTag = document.createElement('li'); //Create new <li> tag
         breedTag.id = breed;
         breedTag.addEventListener("click", () => { //Add Event Listener to the <li> tag
-            // console.log("breed ", breedTag);
             let breedColor = breedTag.innerText.fontcolor("red"); //Turn the text "red"
             breedTag.innerHTML = breedColor;
         });
@@ -81,7 +78,6 @@ function breedLoad(){
         let breedTag = document.createElement('li'); //Create new <li> tag
         breedTag.id = breed;
         breedTag.addEventListener("click", () => { //Add Event Listener to the <li> tag
-            // console.log("breed ", breedTag);
             let breedColor = breedTag.innerText.fontcolor("red"); //Turn text "red"
             breedTag.innerHTML = breedColor;
         });
